@@ -1,4 +1,9 @@
 {
-  "assetsDir": "/",
-  "functionFile": "/index.js"
+  "name": "worldhistory",
+  "installCommand": "",      // 留空，跳过安装步骤
+  "buildCommand": "",        // 留空，跳过构建步骤
+  "assets": {
+    "directory": "./",       // 静态文件目录，指向项目根目录
+    "notFoundStrategy": "404Page" // 404 页面策略，适合静态站点
+  }
 }
