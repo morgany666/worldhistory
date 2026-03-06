@@ -1,3 +1,4 @@
 {
-  "assetsDir": "/"
+  "assetsDir": "/",
+  "functionFile": "/index.js"
 }
