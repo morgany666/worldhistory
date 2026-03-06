@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界历史年代图册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #3498db;
+        }
+        .era {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .era-header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        .era-header:hover {
+            background-color: #e9ecef;
+        }
+        .era-toggle {
+            position: absolute;
+            left: -35px;
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .era-toggle.expanded {
+            transform: rotate(45deg);
+        }
+        .era-content {
+            margin-top: 15px;
+            padding-left: 20px;
+            display: none;
+        }
+        .era-content.expanded {
+            display: block;
+        }
+        .era-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 20px;
+        }
+        .era-year {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+        .history-comparison {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .china-history, .world-history {
+            flex: 1;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .china-history {
+            background-color: #e3f2fd;
+        }
+        .world-history {
+            background-color: #e8f5e8;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .dynasty {
+            margin-bottom: 15px;
+        }
+        .dynasty-name {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .civilization {
+            margin-bottom: 15px;
+        }
+        .civilization-name {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .event {
+            margin-top: 5px;
+            padding-left: 15px;
+            font-size: 0.9rem;
+        }
+        .social-form {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>世界历史年代图册</h1>
+            <p class="subtitle">中国与世界历史的同步进程</p>
+        </header>
+        
+        <div class="content">
+            <div class="timeline">
+                <!-- 远古时代 -->
+                <div class="era">
+                    <div class="era-header">
+                        <div class="era-toggle">+</div>
+                        <div class="era-title">远古时代</div>
+                        <div class="era-year">约公元前30000年-公元前3000年</div>
+                    </div>
+                    <div class="era-content">
+                        <div class="history-comparison">
+                            <div class="china-history">
+                                <h3>中国历史</h3>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">原始社会</div>
+                                    <div class="social-form">社会形态：原始公社制</div>
+                                    <div class="event">• 旧石器时代：使用打制石器</div>
+                                    <div class="event">• 新石器时代：使用磨制石器，出现农业和畜牧业</div>
+                                    <div class="event">• 仰韶文化：彩陶艺术</div>
+                                    <div class="event">• 龙山文化：黑陶艺术</div>
+                                </div>
+                            </div>
+                            <div class="world-history">
+                                <h3>世界历史</h3>
+                                <div class="civilization">
+                                    <div class="civilization-name">非洲</div>
+                                    <div class="social-form">社会形态：原始公社制</div>
+                                    <div class="event">• 人类起源：非洲南方古猿</div>
+                                    <div class="event">• 旧石器时代：使用打制石器</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">欧洲</div>
+                                    <div class="social-form">社会形态：原始公社制</div>
+                                    <div class="event">• 尼安德特人：旧石器时代中期</div>
+                                    <div class="event">• 克罗马农人：旧石器时代晚期</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 古代文明 -->
+                <div class="era">
+                    <div class="era-header">
+                        <div class="era-toggle">+</div>
+                        <div class="era-title">古代文明</div>
+                        <div class="era-year">约公元前3000年-公元前1000年</div>
+                    </div>
+                    <div class="era-content">
+                        <div class="history-comparison">
+                            <div class="china-history">
+                                <h3>中国历史</h3>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">夏朝（约前2070-前1600）</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 禹建立夏朝</div>
+                                    <div class="event">• 青铜器开始使用</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">商朝（约前1600-前1046）</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 甲骨文出现</div>
+                                    <div class="event">• 青铜器高度发达</div>
+                                </div>
+                            </div>
+                            <div class="world-history">
+                                <h3>世界历史</h3>
+                                <div class="civilization">
+                                    <div class="civilization-name">古埃及</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 金字塔建造</div>
+                                    <div class="event">• 象形文字</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">古巴比伦</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 《汉谟拉比法典》</div>
+                                    <div class="event">• 楔形文字</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">古印度</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 哈拉帕文明</div>
+                                    <div class="event">• 种姓制度形成</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 古典时代 -->
+                <div class="era">
+                    <div class="era-header">
+                        <div class="era-toggle">+</div>
+                        <div class="era-title">古典时代</div>
+                        <div class="era-year">约公元前1000年-公元500年</div>
+                    </div>
+                    <div class="era-content">
+                        <div class="history-comparison">
+                            <div class="china-history">
+                                <h3>中国历史</h3>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">周朝（前1046-前256）</div>
+                                    <div class="social-form">社会形态：奴隶社会向封建社会过渡</div>
+                                    <div class="event">• 分封制</div>
+                                    <div class="event">• 孔子创立儒家学派</div>
+                                    <div class="event">• 百家争鸣</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">秦朝（前221-前207）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 统一六国</div>
+                                    <div class="event">• 实行郡县制</div>
+                                    <div class="event">• 焚书坑儒</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">汉朝（前202-公元220）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 张骞出使西域</div>
+                                    <div class="event">• 丝绸之路开通</div>
+                                    <div class="event">• 罢黜百家，独尊儒术</div>
+                                </div>
+                            </div>
+                            <div class="world-history">
+                                <h3>世界历史</h3>
+                                <div class="civilization">
+                                    <div class="civilization-name">古希腊</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 雅典民主制</div>
+                                    <div class="event">• 苏格拉底、柏拉图、亚里士多德</div>
+                                    <div class="event">• 奥林匹克运动会</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">古罗马</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 罗马共和国</div>
+                                    <div class="event">• 罗马帝国</div>
+                                    <div class="event">• 《十二铜表法》</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">波斯帝国</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 大流士一世改革</div>
+                                    <div class="event">• 波斯波利斯</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 中世纪 -->
+                <div class="era">
+                    <div class="era-header">
+                        <div class="era-toggle">+</div>
+                        <div class="era-title">中世纪</div>
+                        <div class="era-year">约公元500年-1500年</div>
+                    </div>
+                    <div class="era-content">
+                        <div class="history-comparison">
+                            <div class="china-history">
+                                <h3>中国历史</h3>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">唐朝（618-907）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 贞观之治</div>
+                                    <div class="event">• 开元盛世</div>
+                                    <div class="event">• 丝绸之路繁荣</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">宋朝（960-1279）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 商品经济繁荣</div>
+                                    <div class="event">• 科技发达（活字印刷、指南针）</div>
+                                    <div class="event">• 程朱理学</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">元朝（1271-1368）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 忽必烈建立元朝</div>
+                                    <div class="event">• 马可·波罗来华</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">明朝（1368-1644）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 郑和下西洋</div>
+                                    <div class="event">• 资本主义萌芽</div>
+                                    <div class="event">• 八股取士</div>
+                                </div>
+                            </div>
+                            <div class="world-history">
+                                <h3>世界历史</h3>
+                                <div class="civilization">
+                                    <div class="civilization-name">欧洲</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 查理曼帝国</div>
+                                    <div class="event">• 十字军东征</div>
+                                    <div class="event">• 中世纪大学兴起</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">阿拉伯帝国</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 伊斯兰教兴起</div>
+                                    <div class="event">• 阿拉伯文化繁荣</div>
+                                    <div class="event">• 翻译运动</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">玛雅文明</div>
+                                    <div class="social-form">社会形态：奴隶社会</div>
+                                    <div class="event">• 玛雅文字</div>
+                                    <div class="event">• 金字塔建造</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 近代 -->
+                <div class="era">
+                    <div class="era-header">
+                        <div class="era-toggle">+</div>
+                        <div class="era-title">近代</div>
+                        <div class="era-year">约1500年-1900年</div>
+                    </div>
+                    <div class="era-content">
+                        <div class="history-comparison">
+                            <div class="china-history">
+                                <h3>中国历史</h3>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">清朝（1644-1912）</div>
+                                    <div class="social-form">社会形态：封建社会</div>
+                                    <div class="event">• 康乾盛世</div>
+                                    <div class="event">• 闭关锁国</div>
+                                    <div class="event">• 鸦片战争</div>
+                                    <div class="event">• 太平天国运动</div>
+                                    <div class="event">• 洋务运动</div>
+                                </div>
+                            </div>
+                            <div class="world-history">
+                                <h3>世界历史</h3>
+                                <div class="civilization">
+                                    <div class="civilization-name">欧洲</div>
+                                    <div class="social-form">社会形态：资本主义社会</div>
+                                    <div class="event">• 文艺复兴</div>
+                                    <div class="event">• 宗教改革</div>
+                                    <div class="event">• 工业革命</div>
+                                    <div class="event">• 法国大革命</div>
+                                </div>
+                                <div class="civilization">
+                                    <div class="civilization-name">美洲</div>
+                                    <div class="social-form">社会形态：资本主义社会</div>
+                                    <div class="event">• 哥伦布发现新大陆</div>
+                                    <div class="event">• 美国独立战争</div>
+                                    <div class="event">• 南北战争</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 现代 -->
+                <div class="era">
+                    <div class="era-header">
+                        <div class="era-toggle">+</div>
+                        <div class="era-title">现代</div>
+                        <div class="era-year">约1900年至今</div>
+                    </div>
+                    <div class="era-content">
+                        <div class="history-comparison">
+                            <div class="china-history">
+                                <h3>中国历史</h3>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">中华民国（1912-1949）</div>
+                                    <div class="social-form">社会形态：半殖民地半封建社会</div>
+                                    <div class="event">• 辛亥革命</div>
+                                    <div class="event">• 五四运动</div>
+                                    <div class="event">• 抗日战争</div>
+                                </div>
+                                <div class="dynasty">
+                                    <div class="dynasty-name">中华人民共和国（1949至今）</div>
+                                    <div class="social-form">社会形态：社会主义社会</div>
+                                    <div class="event">• 新中国成立</div>
+                                    <div class="event">• 改革开放</div>
+                                    <div class="event">• 加入WTO</div>
+                                    <div class="event">• 脱贫攻坚</div>
+                                </div>
+                            </div>
+                            <div class="world-history">
+                                <h3>世界历史</h3>
+                                <div class="civilization">
+                                    <div class="civilization-name">全球</div>
+                                    <div class="social-form">社会形态：资本主义社会、社会主义社会</div>
+                                    <div class="event">• 第一次世界大战</div>
+                                    <div class="event">• 第二次世界大战</div>
+                                    <div class="event">• 冷战</div>
+                                    <div class="event">• 全球化</div>
+                                    <div class="event">• 信息革命</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="list.html" class="back-link">返回大纲</a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 个人网站 | 保留所有权利</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 折叠展开功能
+        document.querySelectorAll('.era-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const toggle = this.querySelector('.era-toggle');
+                
+                content.classList.toggle('expanded');
+                toggle.classList.toggle('expanded');
+                
+                if (content.classList.contains('expanded')) {
+                    toggle.textContent = '−';
+                } else {
+                    toggle.textContent = '+';
+                }
+            });
+        });
+        
+        // 默认展开第一个时代
+        document.querySelector('.era-header').click();
+    </script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大模型发展史</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #3498db;
+        }
+        .year {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .year-header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        .year-header:hover {
+            background-color: #e9ecef;
+        }
+        .year-toggle {
+            position: absolute;
+            left: -35px;
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .year-toggle.expanded {
+            transform: rotate(45deg);
+        }
+        .year-content {
+            margin-top: 15px;
+            padding-left: 20px;
+            display: none;
+        }
+        .year-content.expanded {
+            display: block;
+        }
+        .year-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 20px;
+        }
+        .model {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        .model-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .model-description {
+            margin-bottom: 10px;
+        }
+        .model-features {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .model-features li {
+            margin-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin: 20px 0 15px 0;
+            color: #2980b9;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>大模型发展史</h1>
+            <p class="subtitle">记录最近几年大模型技术的发展历程</p>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2>发展概述</h2>
+                <p>大语言模型（Large Language Models, LMMs）是人工智能领域的重要突破，通过大规模参数训练和海量数据学习，能够理解和生成人类语言，完成各种复杂任务。最近几年，大模型技术发展迅速，从最初的基础模型到如今的通用人工智能雏形，展现出了惊人的能力。</p>
+            </div>
+            
+            <div class="section">
+                <h2>发展时间线</h2>
+                <div class="timeline">
+                    <!-- 2017年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2017年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">Transformer架构</div>
+                                <div class="model-description">Google发表论文《Attention is All You Need》，提出Transformer架构，为后续大模型的发展奠定了基础。</div>
+                                <ul class="model-features">
+                                    <li>采用自注意力机制</li>
+                                    <li>并行计算能力强</li>
+                                    <li>适合处理长序列数据</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2018年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2018年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">BERT</div>
+                                <div class="model-description">Google发布BERT（Bidirectional Encoder Representations from Transformers），在自然语言理解任务上取得重大突破。</div>
+                                <ul class="model-features">
+                                    <li>双向编码器</li>
+                                    <li>预训练+微调模式</li>
+                                    <li>在多项NLP任务上刷新基准</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2019年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2019年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">GPT-2</div>
+                                <div class="model-description">OpenAI发布GPT-2，参数规模达1.5亿，能够生成连贯的长文本。</div>
+                                <ul class="model-features">
+                                    <li>生成式预训练</li>
+                                    <li>零样本学习能力</li>
+                                    <li>文本生成质量显著提升</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2020年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2020年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">GPT-3</div>
+                                <div class="model-description">OpenAI发布GPT-3，参数规模达1750亿，展现出惊人的零样本和少样本学习能力。</div>
+                                <ul class="model-features">
+                                    <li>超大参数规模</li>
+                                    <li>强大的零样本学习能力</li>
+                                    <li>可执行多种任务</li>
+                                </ul>
+                            </div>
+                            <div class="model">
+                                <div class="model-name">T5</div>
+                                <div class="model-description">Google发布T5（Text-to-Text Transfer Transformer），将所有NLP任务统一为文本到文本的形式。</div>
+                                <ul class="model-features">
+                                    <li>统一任务形式</li>
+                                    <li>多任务学习</li>
+                                    <li>可扩展性强</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2021年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2021年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">DALL-E</div>
+                                <div class="model-description">OpenAI发布DALL-E，能够根据文本描述生成图像。</div>
+                                <ul class="model-features">
+                                    <li>文本到图像生成</li>
+                                    <li>创意图像生成</li>
+                                    <li>多模态能力</li>
+                                </ul>
+                            </div>
+                            <div class="model">
+                                <div class="model-name">PaLM</div>
+                                <div class="model-description">Google发布PaLM，参数规模达5400亿，在多种任务上取得优异成绩。</div>
+                                <ul class="model-features">
+                                    <li>超大参数规模</li>
+                                    <li>多语言能力</li>
+                                    <li>复杂推理能力</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2022年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2022年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">ChatGPT</div>
+                                <div class="model-description">OpenAI发布ChatGPT，基于GPT-3.5，专注于对话交互，引起广泛关注。</div>
+                                <ul class="model-features">
+                                    <li>对话能力强</li>
+                                    <li>上下文理解</li>
+                                    <li>用户友好界面</li>
+                                </ul>
+                            </div>
+                            <div class="model">
+                                <div class="model-name">LLaMA</div>
+                                <div class="model-description">Meta发布LLaMA，参数规模从7B到65B不等，开源供研究使用。</div>
+                                <ul class="model-features">
+                                    <li>开源模型</li>
+                                    <li>多尺寸版本</li>
+                                    <li>高效训练方法</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2023年 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2023年</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">GPT-4</div>
+                                <div class="model-description">OpenAI发布GPT-4，参数规模进一步扩大，能力显著提升，支持多模态输入。</div>
+                                <ul class="model-features">
+                                    <li>多模态能力</li>
+                                    <li>高级推理</li>
+                                    <li>更长的上下文窗口</li>
+                                </ul>
+                            </div>
+                            <div class="model">
+                                <div class="model-name">Claude</div>
+                                <div class="model-description">Anthropic发布Claude，注重安全性和可控性。</div>
+                                <ul class="model-features">
+                                    <li>长上下文理解</li>
+                                    <li>安全性设计</li>
+                                    <li>多轮对话能力</li>
+                                </ul>
+                            </div>
+                            <div class="model">
+                                <div class="model-name">Gemini</div>
+                                <div class="model-description">Google发布Gemini，多模态大模型，支持文本、图像、音频等多种输入。</div>
+                                <ul class="model-features">
+                                    <li>多模态融合</li>
+                                    <li>实时交互</li>
+                                    <li>多语言支持</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2024年及以后 -->
+                    <div class="year">
+                        <div class="year-header">
+                            <div class="year-toggle">+</div>
+                            <div class="year-title">2024年及以后</div>
+                        </div>
+                        <div class="year-content">
+                            <div class="model">
+                                <div class="model-name">GPT-4o</div>
+                                <div class="model-description">OpenAI发布GPT-4o，优化了多模态能力，响应速度更快。</div>
+                                <ul class="model-features">
+                                    <li>实时多模态处理</li>
+                                    <li>更快的响应速度</li>
+                                    <li>更准确的理解能力</li>
+                                </ul>
+                            </div>
+                            <div class="model">
+                                <div class="model-name">Gemini 2.0</div>
+                                <div class="model-description">Google发布Gemini 2.0，进一步提升了模型能力和应用范围。</div>
+                                <ul class="model-features">
+                                    <li>更大的参数规模</li>
+                                    <li>更强的推理能力</li>
+                                    <li>更广泛的应用场景</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>技术突破</h2>
+                <h3>架构创新</h3>
+                <p>从Transformer架构的提出，到各种变体的出现，大模型的架构设计不断优化，提高了模型的效率和性能。</p>
+                
+                <h3>训练方法</h3>
+                <p>预训练+微调、指令微调、强化学习人类反馈（RLHF）等训练方法的出现，显著提升了模型的能力和安全性。</p>
+                
+                <h3>多模态能力</h3>
+                <p>从单一的文本处理，到支持文本、图像、音频、视频等多种模态，大模型的能力边界不断扩展。</p>
+                
+                <h3>上下文理解</h3>
+                <p>上下文窗口的不断扩大，使得模型能够处理更长的文本，理解更复杂的语境。</p>
+            </div>
+            
+            <div class="section">
+                <h2>应用场景</h2>
+                <h3>自然语言处理</h3>
+                <p>文本生成、机器翻译、情感分析、摘要生成等任务的性能显著提升。</p>
+                
+                <h3>内容创作</h3>
+                <p>写作辅助、创意生成、广告文案、剧本创作等领域得到广泛应用。</p>
+                
+                <h3>教育领域</h3>
+                <p>智能辅导、个性化学习、作业批改、知识问答等应用场景。</p>
+                
+                <h3>科研辅助</h3>
+                <p>文献综述、实验设计、数据分析、论文写作等方面的应用。</p>
+                
+                <h3>商业应用</h3>
+                <p>客户服务、市场分析、产品设计、营销策划等领域的应用。</p>
+            </div>
+            
+            <div class="section">
+                <h2>未来展望</h2>
+                <p>大模型技术的发展仍在加速，未来可能会在以下方面取得突破：</p>
+                <ul>
+                    <li>更强大的通用人工智能能力</li>
+                    <li>更高效的模型训练和推理方法</li>
+                    <li>更广泛的行业应用</li>
+                    <li>更好的安全性和可控性</li>
+                    <li>更公平、更包容的AI系统</li>
+                </ul>
+            </div>
+            
+            <a href="list.html" class="back-link">返回大纲</a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 个人网站 | 保留所有权利</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 折叠展开功能
+        document.querySelectorAll('.year-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const toggle = this.querySelector('.year-toggle');
+                
+                content.classList.toggle('expanded');
+                toggle.classList.toggle('expanded');
+                
+                if (content.classList.contains('expanded')) {
+                    toggle.textContent = '−';
+                } else {
+                    toggle.textContent = '+';
+                }
+            });
+        });
+        
+        // 默认展开2023年
+        const year2023 = document.querySelectorAll('.year-header')[5];
+        year2023.click();
+    </script>
+</body>
+</html>
